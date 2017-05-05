@@ -1,0 +1,14 @@
+h1{
+  color:red;
+}
+#game-area{
+  border: 30px solid black;
+  width: 500px;
+  height: 500px;
+    font-size: 0;
+}
+.block{
+  border: 1px solid grey;
+  display: inline-block;
+
+}
