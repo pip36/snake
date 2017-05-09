@@ -6,6 +6,7 @@ $(document).ready(function(){
   snake = new Snake();
   foods = [];
   gameRunning = false;
+  score = 0;
 
   //initialise the grid
   grid.initialize();
@@ -113,6 +114,7 @@ $(document).ready(function(){
         $('#block' + foods[i].x + '-' + foods[i].y).css('background-color', 'red');
       }
       $('#block' + snake.positionArr[0][0] + '-' + snake.positionArr[0][1]).css('background-color', 'orange');
+      $('#score').html(score);
   }
 
   var checkCollision = function(){
@@ -121,6 +123,9 @@ $(document).ready(function(){
       if(snake.positionArr[0][0] == foods[i].x && snake.positionArr[0][1] == foods[i].y){
         foods.splice(i,1);
         snake.addPiece();
+        snake.addPiece();
+        snake.addPiece();
+        score += 1;
       }
     }
 
@@ -151,6 +156,7 @@ $(document).ready(function(){
     snake.positionArr = [[20,20],[21,20],[22,20]];
     snake.direction = "l";
     foods = [];
+    score = 0;
   }
 
 //The main game loop
@@ -168,7 +174,7 @@ $(document).ready(function(){
 
       render();
       Gameloop();
-  }, 60);
+  }, 50);
   }
 
 //Render game area and begin gameloop
