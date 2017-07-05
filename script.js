@@ -2,9 +2,10 @@ $(document).ready(function(){
   // global vars
   gameAreaW = $('#game-area').width();
   gameAreaH = $('#game-area').height();
-  grid = new Grid(40, 40);
+  grid = new Grid(50, 50);
   snake = new Snake();
   foods = [];
+  maxFoods = 1;
   gameRunning = false;
   score = 0;
 
@@ -48,7 +49,7 @@ $(document).ready(function(){
         }
       }
     //calculate block size
-      var blockSize = (gameAreaW/this.width) - 2; //2 is border-width*2
+      var blockSize = (gameAreaW/this.width) ; //2 is border-width*2
       $('.block').width(blockSize);
       $('.block').height(blockSize);
     }
@@ -89,6 +90,9 @@ $(document).ready(function(){
           this.positionArr.pop();
             break;
       }
+    }
+    this.setPosition = function(position){
+    	this.positionArr = position;
     }
   }
 
@@ -168,7 +172,7 @@ $(document).ready(function(){
         checkCollision();
       }
 
-      if(foods.length < 3){
+      if(foods.length < maxFoods){
         generateFood();
       }
 
@@ -180,5 +184,25 @@ $(document).ready(function(){
 //Render game area and begin gameloop
 render();
 Gameloop();
+
+$('#reset').click(function(){
+
+	var w = $('#widthValue').val();
+	if (w > 100){
+		w = 100;
+	}	
+	var m = $('#maxValue').val();
+	if (m > w * 1.5){
+		m = w * 1.5;
+	}
+	$('#game-area').empty();
+	grid = new Grid(w, w);
+	maxFoods = m;
+	grid.initialize();
+	render();
+	GameReset();
+	snake.setPosition([[w/2,w/2],[(w/2)+1,w/2],[(w/2)+2,w/2]]);
+});
+
 
 });

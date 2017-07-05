@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> snake </title>
+    <title> Snake </title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js" type="text/javascript"> </script>
   </head>
   <body>
     <h1> snake </h1>
-    <p> Press "Space" to start, and the arrow keys to move </p>
-    <h3> Score: </h3> <h3 id='score'> 0 </h3>
+    <p> Press "Space" to start, and the arrow keys to move </p>  
+    <p> <strong>Number of Blocks:</strong> (sets the grid size e.g. 50 X 50 squares), (maximum is 100) <p> <input id='widthValue' value='50'> 
+    <p> <strong>MaxFruit:</strong> (higher values allow more fruit to spawn), (will cap based on gridsize)<p> <input id='maxValue' value='1'>
+    <button id='reset'> Reset </button>
     <div id="game-area"> </div>
+    <h2> Score: </h2> <h2 id='score'> 0 </h2>
   </body>
 </html>

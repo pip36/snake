@@ -1,14 +1,19 @@
-h1{
-  color:red;
+body{
+	font-family: sans-serif;
+	 text-align: center;
 }
+
+
+
 #game-area{
+	margin-left: auto;
+	margin-right: auto;
   border: 30px solid black;
   width: 500px;
   height: 500px;
     font-size: 0;
 }
 .block{
-  border: 1px solid grey;
+  
   display: inline-block;
-
 }
