@@ -15,25 +15,38 @@ $(document).ready(function(){
   //detect arrow keypresses
   $(document).keydown(function(e) {
     switch(e.which) {
-        case 37: // left
-        if (gameRunning && snake.direction != "r"){snake.direction = "l";}
-        break;
-        case 38: // up
-        if (gameRunning && snake.direction != "d"){snake.direction = "u";}
-        break;
-        case 39: // right
-        if (gameRunning && snake.direction != "l"){snake.direction = "r";}
-        break;
-        case 40: // down
-        if (gameRunning && snake.direction != "u"){snake.direction = "d";}
-        break;
-        case 32:
+        case 37:
+        case 65: // left
         if (!gameRunning){
           gameRunning = true;
         }
+        if (gameRunning && snake.direction != "r"){snake.direction = "l";}
+        break;
+        case 38:
+        case 87: // up
+        if (!gameRunning){
+          gameRunning = true;
+        }
+        if (gameRunning && snake.direction != "d"){snake.direction = "u";}
+        break;
+        case 39:
+        case 68: // right
+        if (!gameRunning){
+          gameRunning = true;
+        }
+        if (gameRunning && snake.direction != "l"){snake.direction = "r";}
+        break;
+        case 40:
+        case 83: // down
+        if (!gameRunning){
+          gameRunning = true;
+        }
+        if (gameRunning && snake.direction != "u"){snake.direction = "d";}
+        break;
+  
         default: return; // exit this handler for other keys
     }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
+    e.preventDefault(); 
   });
 
 //The grid Gameobject
